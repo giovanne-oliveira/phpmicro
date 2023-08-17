@@ -75,6 +75,7 @@ jobs:
           repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply patches
         shell: powershell
@@ -163,6 +164,7 @@ jobs:
           repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply patches
         shell: bash
@@ -273,6 +275,7 @@ jobs:
           repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Apply patches
         shell: bash
