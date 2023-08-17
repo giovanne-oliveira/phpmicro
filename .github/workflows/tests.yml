@@ -69,10 +69,10 @@ jobs:
           path: php-sdk-binary-tools
           ref: master
 
-      - name: Checkout codeguard-ext 
+      - name: Checkout ext-codeguard 
         uses: actions/checkout@v3
         with:
-          repository: giovanne-oliveira/codeguard-ext
+          repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
 
@@ -157,10 +157,10 @@ jobs:
         with:
           path: php-src/sapi/micro
 
-      - name: Checkout codeguard-ext 
+      - name: Checkout ext-codeguard 
         uses: actions/checkout@v3
         with:
-          repository: giovanne-oliveira/codeguard-ext
+          repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
 
@@ -267,10 +267,10 @@ jobs:
         with:
           path: php-src/sapi/micro
 
-      - name: Checkout codeguard-ext 
+      - name: Checkout ext-codeguard 
         uses: actions/checkout@v3
         with:
-          repository: giovanne-oliveira/codeguard-ext
+          repository: giovanne-oliveira/ext-codeguard
           path: ext/codeguard
           ref: main
 
