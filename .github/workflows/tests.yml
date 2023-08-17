@@ -69,6 +69,13 @@ jobs:
           path: php-sdk-binary-tools
           ref: master
 
+      - name: Checkout codeguard-ext 
+        uses: actions/checkout@v3
+        with:
+          repository: giovanne-oliveira/codeguard-ext
+          path: ext/codeguard
+          ref: main
+
       - name: Apply patches
         shell: powershell
         working-directory: php-src
@@ -111,6 +118,7 @@ jobs:
             --enable-mbstring ^
             --enable-session ^
             --enable-tokenizer ^
+            --enable-codeguard ^
             --enable-phar && ^
           nmake micro
 
@@ -148,6 +156,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: php-src/sapi/micro
+
+      - name: Checkout codeguard-ext 
+        uses: actions/checkout@v3
+        with:
+          repository: giovanne-oliveira/codeguard-ext
+          path: ext/codeguard
+          ref: main
 
       - name: Apply patches
         shell: bash
@@ -211,6 +226,7 @@ jobs:
             --enable-phar \
             --enable-posix \
             --enable-pcntl \
+            --enable-codeguard \
             --disable-mbregex &&
           make -j `nproc` \
             EXTRA_CFLAGS='-Os' \
@@ -250,6 +266,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: php-src/sapi/micro
+
+      - name: Checkout codeguard-ext 
+        uses: actions/checkout@v3
+        with:
+          repository: giovanne-oliveira/codeguard-ext
+          path: ext/codeguard
+          ref: main
 
       - name: Apply patches
         shell: bash
@@ -313,6 +336,7 @@ jobs:
             --enable-phar \
             --enable-posix \
             --enable-pcntl \
+            --enable-codeguard \
             --disable-mbregex &&
           make -j `sysctl -n hw.logicalcpu` \
             EXTRA_CFLAGS='-Os'
