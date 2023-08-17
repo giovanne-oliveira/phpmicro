@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: giovanne-oliveira/ext-codeguard
-          path: ext/codeguard
+          path: php-src/ext/codeguard
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -83,7 +83,7 @@ jobs:
         run: |
           $patchVer = "${{ matrix.patch }}"
           $series = '83', '82', '81', '80'
-          $patches = 'cli_checks', 'vcruntime140', 'win32', 'zend_stream'
+          $patches = 'cli_checks', 'vcruntime140', 'win32', 'zend_stream', 'phar'
           foreach ( $patch in $patches )
           {
             $path = "sapi/micro/patches/${patch}.patch"
@@ -162,7 +162,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: giovanne-oliveira/ext-codeguard
-          path: ext/codeguard
+          path: php-src/ext/codeguard
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -171,7 +171,7 @@ jobs:
         working-directory: php-src
         run: |
           patchVer="${{ matrix.patch }}"
-          for patch in 'cli_checks' 'disable_huge_page'
+          for patch in 'cli_checks' 'disable_huge_page' 'phar' 'static_opcache'
           do
             path="sapi/micro/patches/${patch}.patch"
             if [ -f $path ]
@@ -215,10 +215,6 @@ jobs:
             --disable-shared \
             --enable-static \
             --disable-dom \
-            --disable-simplexml \
-            --disable-xml \
-            --disable-xmlreader \
-            --disable-xmlwriter \
             --enable-ctype \
             --enable-filter \
             --enable-mbstring \
@@ -273,7 +269,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: giovanne-oliveira/ext-codeguard
-          path: ext/codeguard
+          path: php-src/ext/codeguard
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -282,7 +278,7 @@ jobs:
         working-directory: php-src
         run: |
           patchVer="${{ matrix.patch }}"
-          for patch in 'cli_checks' 'disable_huge_page'
+          for patch in 'cli_checks' 'disable_huge_page' 'phar' 'static_opcache'
           do
             path="sapi/micro/patches/${patch}.patch"
             if [ -f $path ]
@@ -326,10 +322,6 @@ jobs:
             --disable-shared \
             --enable-static \
             --disable-dom \
-            --disable-simplexml \
-            --disable-xml \
-            --disable-xmlreader \
-            --disable-xmlwriter \
             --enable-ctype \
             --enable-filter \
             --enable-mbstring \
